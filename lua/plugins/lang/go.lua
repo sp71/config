@@ -7,7 +7,6 @@ return {
         gopls = {
           settings = {
             gopls = {
-              buildFlags = { "-tags=integration,unittest" },
               expandWorkspaceToModule = true,
               semanticTokens = true,
               analyses = {
