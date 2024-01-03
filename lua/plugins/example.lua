@@ -60,8 +60,22 @@ return {
         function() require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root }) end,
         desc = "Find Plugin File",
       },
+      {
+        "<leader>/",
+        "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
+        desc = "Grep (root dir)",
+      },
     },
-    -- change some options
+    dependencies = {
+      {
+        "nvim-telescope/telescope-live-grep-args.nvim",
+      },
+    },
+    config = function()
+      local tele = require("telescope")
+      tele.setup(opts)
+      tele.load_extension("live_grep_args")
+    end,
     opts = {
       defaults = {
         layout_strategy = "horizontal",
